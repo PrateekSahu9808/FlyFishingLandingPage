@@ -1,0 +1,53 @@
+@use "@/styles/mixins" as *;
+.memberStories_container {
+  @include container;
+  @include flex-column;
+  @include flex-gap(24px);
+  padding: 88px 0;
+  .memberStories_container_heading {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 54px;
+  }
+  .memberStories_section {
+    @include flex-wrap;
+    gap: 24px;
+  }
+  .memberStories_section_item {
+    width: calc(50% - 12px);
+    @include flex-gap(24px);
+    .ememberStories_section_item_left_section {
+    }
+    .memberStories_section_item_right_section {
+      @include flex-column;
+      @include flex-gap(4px);
+      div {
+        font-family: "Gluten", cursive;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 48px;
+        color: var(--primary-text-color);
+      }
+      p {
+        margin: 0;
+        padding: 0;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        color: var(--secondary-text-color);
+      }
+      div {
+        button {
+          padding: 4px 8px;
+          border: none;
+          border-radius: 4px;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          color: var(--primary-text-color);
+          background-color: var(--button-secondary-bg-color);
+        }
+      }
+    }
+  }
+}

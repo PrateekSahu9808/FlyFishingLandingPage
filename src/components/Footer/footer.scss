@@ -1,0 +1,29 @@
+@use "@/styles/mixins" as *;
+
+.footer_wrapper {
+  width: 100%;
+  background: var(--primary-text-color);
+  padding: 22px 0;
+  .footer_container {
+    @include container;
+
+    @include flex-column;
+    gap: 36px;
+
+    .footer_action_items_container {
+      color: var(--button-text-color);
+      @include flex-between;
+      .footer_action_items {
+        @include flex-gap(24px);
+        align-items: center;
+        .footer_action_items_query {
+          @include flex-gap(24px);
+        }
+      }
+    }
+    .footer_content {
+      @include flex-center;
+      color: var(--footer-text-color);
+    }
+  }
+}
