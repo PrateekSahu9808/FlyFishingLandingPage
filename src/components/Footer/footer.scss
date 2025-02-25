@@ -6,23 +6,37 @@
   padding: 22px 0;
   .footer_container {
     @include container;
-
     @include flex-column;
     gap: 36px;
 
     .footer_action_items_container {
       color: var(--button-text-color);
-      @include flex-between;
+      @include flex-column;
+      gap: 8px;
+      align-items: center;
       .footer_action_items {
-        @include flex-gap(24px);
+        @include flex-column;
         align-items: center;
+        gap: 8px;
         .footer_action_items_query {
           @include flex-gap(24px);
         }
+        @include responsive(sm) {
+          @include flex-gap(24px);
+          flex-direction: row;
+        }
+      }
+      @include responsive(sm) {
+        @include flex-between;
+        flex-direction: row;
+      }
+      .footer_action_social_items {
+        display: flex;
       }
     }
     .footer_content {
       @include flex-center;
+      text-align: center;
       color: var(--footer-text-color);
     }
   }

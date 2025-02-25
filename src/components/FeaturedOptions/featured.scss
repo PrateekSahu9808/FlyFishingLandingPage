@@ -1,61 +1,155 @@
 @use "@/styles/mixins" as *;
+
 .featuredOptions_wrapper {
-  background: var(--secondary-bg-color);
   width: 100%;
+  background: var(--secondary-bg-color);
   .featuredOptions_container {
     @include container;
-    padding: 96px 0;
-    hr {
-      margin-bottom: 0;
-    }
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     .featuredOptions_heading {
+      margin: 0;
       color: var(--primary-text-color);
       font-weight: 600;
-      font-size: 48px;
-      line-height: 54px;
-    }
-    .explore_fly_fishing {
-      color: var(--primary-text-color);
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 30px;
-      @include flex-between;
-    }
-    .explore_fly_fishing_center {
-      @include flex-gap(16px);
-      .explore_fly_fishing_center_left_section {
+      font-size: 40px;
+      line-height: 45px;
+      @include responsive(sm) {
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 54px;
       }
-      .explore_fly_fishing_center_right_section {
-        padding-top: 12px;
-        @include flex-column;
-        @include flex-gap(8px);
-        div {
-          font-weight: 600;
-          font-size: 32px;
-          line-height: 36px;
-          color: var(--primary-text-color);
+    }
+
+    .large-screen {
+      display: none;
+    }
+
+    .small-screen {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .featured_card {
+        position: relative;
+        overflow: hidden;
+
+        .featured_image {
+          width: 100%;
+          height: auto;
+          display: block;
         }
-        p {
-          margin: 0;
-          padding: 0;
-          font-weight: 400;
-          font-size: 20px;
-          line-height: 30px;
-          color: var(--secondary-text-color);
-        }
-        div {
+
+        .featured_overlay {
+          position: absolute;
+          top: -12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 24px;
+          opacity: 0.7;
+
+          h3 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 36px;
+            color: var(--primary-text-color);
+          }
+
+          p {
+            margin: 0;
+            font-size: 20px;
+            line-height: 30px;
+            font-weight: 400;
+            color: var(--secondary-text-color);
+          }
+
           button {
-            padding: 8px 12px;
+            width: fit-content;
+            padding: 10px 16px;
+            background-color: var(--button-secondary-bg-color);
+            color: var(--primary-text-color);
             border: none;
             border-radius: 4px;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            color: var(--primary-text-color);
-            background-color: var(--button-secondary-bg-color);
+            cursor: pointer;
+            margin-top: 12px;
           }
         }
       }
+    }
+
+    @include responsive(md) {
+      .large-screen {
+        @include flex-column;
+        gap: 8px;
+
+        .explore_fly_fishing {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        hr {
+          height: 1px;
+          background-color: var(--border-color);
+          margin: 0;
+        }
+
+        .explore_fly_fishing_center {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+          .explore_fly_fishing_center_left_section {
+            margin-top: -10px;
+          }
+          &_right_section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            div {
+              font-size: 24px;
+              font-weight: bold;
+              color: var(--primary-text-color);
+            }
+
+            p {
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 28px;
+              color: var(--secondary-text-color);
+            }
+
+            button {
+              width: fit-content;
+              padding: 10px 16px;
+              border: none;
+              border-radius: 4px;
+              font-size: 16px;
+              font-weight: 500;
+              cursor: pointer;
+              background-color: var(--button-secondary-bg-color);
+              color: var(--primary-text-color);
+              &:hover {
+                background: var(--primary-bg-color);
+              }
+            }
+          }
+        }
+      }
+
+      .small-screen {
+        display: none !important;
+      }
+    }
+    @include responsive(sm) {
+      padding: 96px 0px;
     }
   }
 }

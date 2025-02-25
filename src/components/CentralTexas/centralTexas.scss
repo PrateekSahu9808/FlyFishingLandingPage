@@ -1,20 +1,29 @@
 @use "@/styles/mixins" as *;
 .centralTexas_container {
   @include container;
-  @include flex-center;
-  padding: 81px 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
   font-family: "Inter", sans-serif;
+  padding: 0 0 24px 0;
   .centralTexas_leftSection {
     @include flex-column;
+    padding: 24px;
     gap: 8px;
     div {
       span {
         display: block;
       }
       font-weight: 600;
-      font-size: 56px;
-      line-height: 64px;
+      font-size: 40px;
+      line-height: 45px;
       color: var(--primary-text-color);
+      @include responsive(sm) {
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 64px;
+        color: var(--primary-text-color);
+      }
     }
     p {
       margin: 0;
@@ -34,7 +43,29 @@
         line-height: 24px;
         color: var(--button-text-color);
         background-color: var(--button-primary-bg-color);
+        transition: opacity 0.3s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.7;
+        }
       }
     }
+    @include responsive(sm) {
+      padding: 0;
+    }
+  }
+  .centralTexas_rightSection {
+    img {
+      width: 100%;
+      @include responsive(sm) {
+        height: auto;
+        width: auto;
+      }
+    }
+  }
+  @include responsive(sm) {
+    @include flex-center;
+    flex-direction: row;
+    padding: 81px 0;
   }
 }

@@ -1,4 +1,5 @@
 import fishIcon from "../../assets/fish.svg";
+import manuBar from "../../assets/Right side.svg";
 import "./header.scss";
 const Header = () => {
   return (
@@ -7,7 +8,7 @@ const Header = () => {
         <span>
           <img src={fishIcon} alt="" />
         </span>
-        <span>Central Texas Fly Fishing</span>
+        <span className="header_text_content">Central Texas Fly Fishing</span>
       </div>
       <nav className="header_right_section">
         <a href="/">Home</a>
@@ -15,6 +16,9 @@ const Header = () => {
         <a href="/services">Services</a>
         <a href="/contact">Contact</a>
       </nav>
+      <div className="manu_bar">
+        <img src={manuBar} />
+      </div>
     </header>
   );
 };
